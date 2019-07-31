@@ -1,0 +1,123 @@
+<!-- <br>
+<h4 style="text-align: center">View Order</h4>
+<div class="container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="bill_id">
+      <th mat-header-cell *matHeaderCellDef> Bill_No </th>
+      <td mat-cell *matCellDef="let element"> {{element.bill_id}} </td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="bill_amount">
+      <th mat-header-cell *matHeaderCellDef> Amount </th>
+      <td mat-cell *matCellDef="let element"> {{element.bill_amount}} </td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="bill_date">
+      <th mat-header-cell *matHeaderCellDef>Date </th>
+      <td mat-cell *matCellDef="let element">{{element.bill_date | date:'dd-MM-yyyy'}}</td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="user_id">
+      <th mat-header-cell *matHeaderCellDef>Email </th>
+      <td mat-cell *matCellDef="let element">{{element.user_id}}</td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="bill_status">
+      <th mat-header-cell *matHeaderCellDef>Status </th>
+      <td mat-cell *matCellDef="let element">{{element.bill_status}}</td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="product_name">
+      <th mat-header-cell *matHeaderCellDef>Product Name </th>
+      <td mat-cell *matCellDef="let element">{{element.product_name}}</td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef>Action </th>
+        <td mat-cell *matCellDef="let element">
+        <a (click)="onClick(element)" ><h5>View More</h5></a>
+        </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div> -->
+
+
+
+<br>
+<h4 style="text-align: center;font-size: 40px">VIEW ORDER PAGE</h4>
+<br>
+<div class="container">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
+      </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <ng-container matColumnDef="order_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.order_id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.order_date | date:'dd-MM-yyyy'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Amount</th>
+        <td mat-cell *matCellDef="let element"> {{element.order_amount}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="fk_product_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.fk_product_id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fk_category_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Id</th>
+        <td mat-cell *matCellDef="let element"> {{element.fk_category_id}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="fk_user_email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>User Email</th>
+        <td mat-cell *matCellDef="let element"> {{element.fk_user_email}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+        <td mat-cell *matCellDef="let element"> {{element.user_address}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="order_status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.order_status}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="Delievery Assign To">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Delievery Assign</th>
+        <td mat-cell  *matCellDef="let element">
+          <input type="text" *ngIf="element.order_status=='Product Dispatched'" [(ngModel)]="element.delievery_assign">
+        </td>
+        <td mat-cell *matCellDef="let element">{{element.delievery_assign}}</td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="Delievery Assign To">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Delievery Assign To</th>
+          <td mat-cell *matCellDef="let element"> {{element.delievery_assign}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="More">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>More</th>
+          <td mat-cell *matCellDef="let element"><a (click)="onClick(element)"> VIEW MORE</a> </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    
+    <mat-paginator [pageSizeOptions]="[5,10,15,20,100]"></mat-paginator>
+  </div>
+</div>

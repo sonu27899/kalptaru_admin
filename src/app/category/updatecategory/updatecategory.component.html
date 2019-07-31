@@ -1,0 +1,34 @@
+<div class="container">
+  <h1 style="margin-left:450px;font-size: 40px">Update Category</h1>
+  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp; BACK</button>
+
+  <form class="example-form" >
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="Category Id" [(ngModel)]="category_id" name="category_id" disabled required id="category_id" #cat_id="ngModel">
+    </mat-form-field>
+    <div *ngIf="cat_id.invalid && (cat_id.dirty || cat_id.touched)" class="alert alert-danger">
+      <div *ngIf="cat_id.errors.required">
+        Category Id Is Required.
+      </div>
+    </div>
+
+    <form class="example-form" >
+    <mat-form-field class="example-full-width" >
+      <input pattern="[a-zA-Z ]*" matInput placeholder="Category name" [(ngModel)]="category_name" name="category_name" required id="category_name" #cat_name="ngModel">
+    </mat-form-field>
+    <div *ngIf="cat_name.invalid && (cat_name.dirty || cat_name.touched)" class="alert alert-danger">
+      <div *ngIf="cat_name.errors.required">
+        Category Name Is Required.
+      </div>
+      <div *ngIf="cat_name.errors.pattern">
+        You can't enter Digit.
+      </div>
+    </div>
+   
+      <button  (click)="UpdateCategory()" mat-raised-button color="primary" style="margin-left:100px">&nbsp;&nbsp; Save</button>
+      <button  (click)="CancelCategory()" mat-raised-button color="primary" style="margin-left:100px">&nbsp;&nbsp; Cancel</button>
+      
+      
+        
+
+        

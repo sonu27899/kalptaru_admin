@@ -1,0 +1,99 @@
+
+<div style="background-color:lightgrey" class="header">
+  <h1>Create Cash Memo</h1>
+</div>
+<br>
+
+<div class="body">
+  <form class="example-form">
+    <!-- <div class="row">
+      <div class="col-md-6">       -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Enter Email" [formControl]="emailFormControl" [(ngModel)]="customer_email" name="customer_email">
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    
+  
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter Name" [formControl]="nameFormControl" [(ngModel)]="customer_name" name="customer_name">
+        <mat-error *ngIf="nameFormControl.hasError('required')">
+          Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+  
+      <mat-form-field class="example-full-width">
+          <input matInput  placeholder="Enter Mobileno" [formControl]="mobilenoFormControl"  [(ngModel)]="customer_mobileno" name="customer_mobileno" maxlength="10">
+          <mat-error *ngIf="mobilenoFormControl.hasError('required')">
+            Mobile no is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+<!-- </div>  
+<div class="col-md-6">   -->
+  
+      <mat-form-field class="example-full-width add" >
+        <textarea  style="height:60px" matInput placeholder="Enter Billing Address" [formControl]="billingaddressFormControl" [(ngModel)]="customer_billing_address" name="customer_billing_address"></textarea>
+        <mat-error *ngIf="billingaddressFormControl.hasError('required')">
+          Billing Address is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+          <textarea style="height:60px" matInput placeholder="Enter Shipping Address" [formControl]="shippingaddressFormControl" [(ngModel)]="customer_shipping_address" name="customer_shipping_address"></textarea>
+          <mat-error *ngIf="shippingaddressFormControl.hasError('required')">
+            Shipping Address is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+          <!-- </div>
+    </div> -->
+  </form>
+
+  <!-- calculation -->
+  <mat-form-field>
+      <mat-select  placeholder="Select category Name" [(ngModel)]="category_id" name="category_name" [formControl]="categoryidFormControl">
+        <mat-option *ngFor="let item of categoryArray" [value]="item.category_name" (click)="productThroughCategory(item.category_id)">
+          {{item.category_name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="categoryidFormControl.hasError('required')">
+          Category Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <mat-form-field>
+        <mat-select placeholder="Select Product Name" [(ngModel)]="product_id" name="product_id" [formControl]="productidFormControl">
+          <mat-option *ngFor="let item of productArray" [value]="item.product_name" (click)="Productprice(item)">
+            {{item.product_name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="productidFormControl.hasError('required')">
+            Product Name is <strong>required</strong>
+          </mat-error>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+      <mat-form-field>
+          <mat-select placeholder="Select Product qty"  name="cutomer_product_qty" [formControl]="customerproductqtyFormControl">
+            <mat-option *ngFor="let item of qty" [value]="item" (click)="value(item)">
+              {{item}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="customerproductqtyFormControl.hasError('required')">
+              Product quantity is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+        Product Price:-<label  [(ngModel)]="product_price"  [formControl]="productpriceFormControl" *ngFor="let item of price" ngDefaultControl>{{item.product_price}}</label>
+
+        <br><br>
+<button style="margin-left:50px" (click)="onCreateMemo()" mat-raised-button color="primary">Create Memo</button>
+</div> 

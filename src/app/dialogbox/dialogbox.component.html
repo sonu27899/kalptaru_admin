@@ -1,0 +1,16 @@
+
+
+<div mat-dialog-content>
+  <p>What's Reason for rejecting Loan?</p>
+  <!-- <mat-form-field>
+      <input matInput [(ngModel)]="data.loan_id">
+    </mat-form-field> -->
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.rejected_reason">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button (click)="onClick(data)" [mat-dialog-close]="data.rejected_reason"  cdkFocusInitial>Ok</button>
+  </div>
+  

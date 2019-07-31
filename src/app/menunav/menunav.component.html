@@ -1,0 +1,86 @@
+<header id="header" class="header">
+    <div class="top-left">
+        <div class="navbar-header">
+            <!-- <a class="navbar-brand" href="#"><img src="../../assets/images/logo.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="#"><img src="../../assets/images/logo2.png" alt="Logo"></a> -->
+            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+        </div>
+    </div>
+    <div class="top-right">
+        <div class="header-menu">
+            
+            <div class="header-left">
+                <button class="search-trigger"><i class="fa fa-search"></i></button>
+                <div class="form-inline">
+                    <form class="search-form">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                        <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                    </form>
+                </div>                
+            </div>
+
+            <div class="user-area dropdown float-right">
+                <a class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar rounded-circle" src="../../assets/images/admin.jpg" alt="User Avatar">
+                </a>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- Left Panel -->
+<aside id="left-panel" class="left-panel">
+    <nav class="navbar navbar-expand-sm navbar-default">
+        <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit"  mat-list-item routerLink="dashboard">Dashboard</a>
+                </li>
+                <b><a style="font-family: 'Times New Roman', Times, serif;font-style: inherit;margin-left: 20px" class="menu-title">Managements</a></b>
+                
+                <mat-nav-list>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="product">Product Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="category">Category Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="employee">Employee Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="order">Order Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="salarymanagement">Salary Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="usermanagement">User Management</a>
+      <!-- <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="Viewbill">Bill Management</a> -->
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="withdrawloanreq">Loan Request Management</a>
+      <a style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink="leavemanagement">Leave Request Management</a>
+      <a (click)="onLogout()" style="font-family: 'Times New Roman', Times, serif;font-style: inherit" mat-list-item routerLink=''>Logout</a>
+    </mat-nav-list>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </nav>
+</aside>
+<!-- /#left-panel -->
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav 
+  #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar color="primary" routerLink="dashboard">MENU</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="product">Product Management</a>
+      <a mat-list-item routerLink="category">Category Management</a>
+      <a mat-list-item routerLink="employee">Employee Management</a>
+      <a mat-list-item routerLink="order">Order Management</a>
+      <a mat-list-item routerLink="salarymanagement">Salary Management</a>
+      <a mat-list-item routerLink="usermanagement">User Management</a>
+      <a mat-list-item routerLink="Viewbill">Bill Management</a>
+      <a mat-list-item routerLink="withdrawloanreq">Loan Request Management</a>
+      <a mat-list-item routerLink=''>Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+  
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>  
+
+ 
+ 

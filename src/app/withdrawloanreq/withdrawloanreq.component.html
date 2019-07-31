@@ -1,0 +1,54 @@
+<h1 style="margin-left:350px;font-size: 40px;">Loan Request Managment</h1>
+<button (click)="AcceptLoanReq()"  mat-raised-button color="primary" style="margin-left:1050px;"><span aria-hidden="true"></span>Accept</button>&nbsp;&nbsp;&nbsp;
+<div class="container">
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="loan_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Loan Amount </th>
+        <td mat-cell *matCellDef="let element"> {{element.loan_amount}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="loan_issued_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Loan Issued Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.loan_issued_date | date:'dd-MM-yyyy'}} </td>
+      </ng-container>
+  
+
+      <ng-container matColumnDef="last_installment_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Installment Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.last_installment_date | date:'dd-MM-yyyy'}} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="loan_status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Loan Status</th>
+        <td mat-cell *matCellDef="let element"> {{element.loan_status}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button (click)="UpdateLoanReq(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-ok"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+            <button (click)="UpdateLoanReqReject(element)" *ngIf="element.loan_status!='Accept'" mat-raised-button color="primary"><span class="glyphicon glyphicon-remove"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+            <button (click)="DeleteLoanReq(element)"  mat-raised-button color="primary"><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+            <!-- <li *ngIf="loan_reason">
+                You chose: <i>{{loan_reason}}</i>
+              </li> -->
+          </td>
+        </ng-container>
+        <!-- (click)="UpdateLoanReq(element)" -->
+        <!-- *ngIf="element.loan_status=='reject'" -->
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5,10,15]"></mat-paginator>
+  </div>
+</div>

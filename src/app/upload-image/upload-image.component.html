@@ -1,0 +1,42 @@
+<div class="container">
+  <h1 style="text-align: center;font-size: 40px">Update Product</h1>
+  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp; BACK</button>
+  <form class="example-form" *ngIf="img_count<3">
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="Product ID" [(ngModel)]="product_id" name="product_id" disabled>
+    </mat-form-field>
+
+    <form class="example-form" >
+      <h3>product Image1</h3>
+
+            <img style="height:100px;width:100px;" src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image1}}">
+            <input type="file" (change)="onselect1($event)" selectedFile="product_image" style="margin-left: 200px;margin-top:-50px;">
+            <button style="margin-left: 500px;margin-top:-50px;" (click)="update1stpic()" mat-raised-button color="primary">Update</button>
+            <br>
+            <br>
+            <form class="example-form" >
+              <h3>product Image2</h3>
+
+                    <img style="height:100px;width:100px;" src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image2}}">
+                    <input type="file" (change)="onselect2($event)" selectedFile="product_image" style="margin-left: 200px;margin-top:-50px;">
+                    <button style="margin-left: 500px;margin-top:-50px;" (click)="update2ndpic()" mat-raised-button color="primary">Update</button>
+                    <br>
+                    <br>
+            </form>
+            <form class="example-form" >
+              <h3>product Image3</h3>
+
+                    <img style="height:100px;width:100px;" src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image3}}">
+                    <input type="file" (change)="onselect3($event)" selectedFile="product_image" style="margin-left: 200px;margin-top:-50px;">
+                    <button style="margin-left: 500px;margin-top:-50px;" (click)="update3rdpic()" mat-raised-button color="primary">Update</button>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+            </form>
+          </form>
+
+
+<br>
+
+          <button  (click)="CancelProduct()" mat-raised-button color="primary" style="margin-left:10px">&nbsp;&nbsp; CANCEL</button>

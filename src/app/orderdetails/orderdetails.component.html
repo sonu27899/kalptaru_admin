@@ -1,0 +1,44 @@
+<h4 style="text-align:center;font-size: 40px">Order Details</h4>
+<div class="container">
+    <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp; BACK</button>
+    <br>
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
+      </mat-form-field>
+    
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <ng-container matColumnDef="fk_bill_id">
+      <th mat-header-cell *matHeaderCellDef> Order id </th>
+      <td mat-cell *matCellDef="let element"> {{element.fk_order_id}} </td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="product_name">
+      <th mat-header-cell *matHeaderCellDef>  Product_Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="category_name">
+        <th mat-header-cell *matHeaderCellDef>  Category Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.category_name}} </td>
+      </ng-container>
+      <br>
+    <ng-container matColumnDef="bill_price">
+      <th mat-header-cell *matHeaderCellDef> Product Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.fk_product_price}} </td>
+    </ng-container>
+    <br>
+    <ng-container matColumnDef="bill_qty">
+      <th mat-header-cell *matHeaderCellDef> Qty </th>
+      <td mat-cell *matCellDef="let element"> {{element.qty}} </td>
+    </ng-container>
+    <br>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5,10,15,20]"></mat-paginator>
+</div>

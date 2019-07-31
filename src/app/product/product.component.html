@@ -1,0 +1,127 @@
+<!-- <h1 style="margin-left:450px;font-size: 40px;">Product Managment</h1>
+<div class="example-button-row">  
+    <button (click)="ProductPage()"  style="margin-left:970px" mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
+  </div>
+ 
+
+<div class="container">
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="product_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="product_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Price</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_price}} </td>
+      </ng-container>
+  
+
+      <ng-container matColumnDef="product_Roomtype">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Roomtype</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_Roomtype}} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="product_soh">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Stock on Hand</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_soh}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action </th>
+          <td mat-cell *matCellDef="let element">
+              <button (click)="UpdateProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-pencil"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+              <button (click)="DeleteProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>
+          </td>
+        </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+  </div>
+</div> -->
+
+<!-- smit -->
+
+<h1 style="margin-left:420px;font-size: 40px;">Product Managment</h1>
+<div class="example-button-row">
+    <button (click)="ProductPage()"  mat-raised-button color="primary" style="margin-left:1000px"><span class="glyphicon glyphicon-plus" style="margin-top:-5px;" aria-hidden="true"></span> ADD PRODUCT</button>
+<br>
+<br>
+<div class="container">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
+      </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="Product_Name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Category_Name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Category Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.category_name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Qty">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.product_qty}} </td>
+      </ng-container>
+      <ng-container matColumnDef="product_price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Product Price</th>
+        <td mat-cell *matCellDef="let element"> {{element.product_price}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action </th>
+          <td mat-cell *matCellDef="let element">
+              <button (click)="UpdateProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-pencil"  aria-hidden="true"></span></button>&nbsp;&nbsp;&nbsp;
+              <button (click)="DeleteProduct(element)" mat-raised-button color="primary"><span class="glyphicon glyphicon-trash"  aria-hidden="true"></span></button>
+          </td>
+        </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5,10,15,20]"></mat-paginator>
+
+  </div>
+</div>
+
+
+
+
+<!-- <br><h1 style="text-align: center">Product Managment</h1><br>
+<div class="example-button-row">
+    <button (click)="ProductPage()" style="margin-left:900px;"  mat-raised-button color="primary"><span class="glyphicon glyphicon-plus" style="margin-top:-5px" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp; ADD PRODUCT</button>
+  </div>
+  <br><br>
+
+<div class="row"  style="margin-left:270px">
+    <div class="col-md-11">
+      <div class="row">
+        <div *ngFor="let element of product" class="col-sm-6 col-md-4">
+          <div class="thumbnail" style="height:320px;width:250px;padding: 5px;">
+                  <img src="http://localhost:3000/images/product_images/{{element.product_image}}">
+                  <b style="font-size:20px;font-family: Arial, Helvetica, sans-serif">{{element.product_name}}</b><br>
+                  {{"PRICE:"}}{{element.product_price}}<br>
+                  <br>
+                  <button (click)="UpdateProduct(element)" mat-raised-button color="primary" style="padding-block-end: 1px;"><mat-icon>update</mat-icon>UPDATE</button>&nbsp;&nbsp;&nbsp;
+                  <button (click)="DeleteProduct(element)" mat-raised-button color="primary"><mat-icon><mat-divider
+                    [vertical]="true">
+                  </mat-divider>delete</mat-icon>Delete</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

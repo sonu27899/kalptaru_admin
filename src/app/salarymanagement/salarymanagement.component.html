@@ -1,0 +1,45 @@
+<h1 style="margin-left:450px;font-size: 40px;">Salary Managment</h1>
+
+<div class="container">
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="search..">
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="employee_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee_Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.employee_name}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="employee_designation">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee_Designation</th>
+        <td mat-cell *matCellDef="let element"> {{element.employee_designation}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="employee_salary">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee_Salary</th>
+        <td mat-cell *matCellDef="let element"> {{element.employee_salary}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="employee_joining_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee_Joining Date</th>
+        <td mat-cell *matCellDef="let element"> {{element.employee_joining_date | date:'dd-MM-yyyy' }} </td>
+      </ng-container>
+
+      
+      <ng-container matColumnDef="salary_status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Salary Status</th>
+          <td mat-cell *matCellDef="let element"> {{element.salary_status}} </td>
+        </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[3,5,10]"></mat-paginator>
+  </div>
+
+</div>

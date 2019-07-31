@@ -1,0 +1,43 @@
+<div class="container">
+  <h1 style="margin-left:500px">My Profile</h1>
+  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1100px">&nbsp;&nbsp; BACK</button>
+  <form class="example-form" >
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Email" [(ngModel)]="user_email" name="user_email" disabled>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Password" [(ngModel)]="user_password" name="user_password" disabled>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Name" [(ngModel)]="user_name" name="user_name" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Mobile number" [(ngModel)]="user_mobileno" name="user_mobileno" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User City" [(ngModel)]="user_city" name="user_city" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Gender" [(ngModel)]="user_gender" name="user_gender" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Address" [(ngModel)]="user_address" name="user_address" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="User Type" [(ngModel)]="user_type" name="user_type" >
+    </mat-form-field>
+
+      <button  (click)="OnClickUser()" mat-raised-button color="primary" style="margin-left:100px">&nbsp;&nbsp; Save</button>
+      <button  (click)="CancelUser()" mat-raised-button color="primary" style="margin-left:100px">&nbsp;&nbsp; Cancel</button>
+      
+      
+        
+
+        

@@ -1,0 +1,160 @@
+<div class="container">
+
+  <h1 style="text-align:  center;font-size: 40px">UPDATE PRODUCT</h1>
+  <button  (click)="BackButton()" mat-raised-button color="primary" style="margin-left:1000px">&nbsp;&nbsp; BACK</button>
+  <form class="example-form" (ngSubmit)="addForm(f1)" #f1="ngForm">
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="Product ID" [(ngModel)]="product_id" name="product_id" disabled required>
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width" >
+      <input matInput placeholder="Product name" [(ngModel)]="product_name" name="product_name" #name="ngModel" id="product_name" required>
+    </mat-form-field>
+
+    <div [hidden]="name.valid || name.untouched">
+      <div [hidden]="!name?.errors?.required"></div>
+      <mat-error>Name is required*</mat-error>
+    </div>
+    <br>
+
+    <mat-form-field class="example-full-width">
+        <mat-select [(ngModel)]="fk_category_id" placeholder="{{category_name}}" id="category_id" #cat="ngModel" name="category_id">
+          <mat-option *ngFor="let item of categoryarr" value={{item.category_id}} >{{item.category_name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br>
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Price" [(ngModel)]="product_price" name="product_price" #price="ngModel" id="product_price" required>
+      </mat-form-field>
+
+      <div [hidden]="price.valid || price.untouched">
+        <div [hidden]="!price?.errors?.required"></div>
+        <mat-error>Price is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product color" [(ngModel)]="product_colour" name="product_colour" #colour="ngModel" id="product_colour" required >
+      </mat-form-field>
+
+      <div [hidden]="colour.valid || colour.untouched">
+        <div [hidden]="!colour?.errors?.required"></div>
+        <mat-error>Product Colour is required*</mat-error>
+      </div>
+      <br>
+
+        <!-- <mat-form-field class="example-full-width" >
+          <input matInput placeholder="Product Image" [(ngModel)]="product_image" name="product_image"> -->
+          <!-- </mat-form-field> -->
+        <h3>Images</h3>
+
+              <img src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image}}">&nbsp;&nbsp;
+              <img src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image2}}">&nbsp;&nbsp;
+              <img src="http://godaddykalpataru.herokuapp.com/images/product_images/{{product_image3}}">&nbsp;&nbsp;
+              <br>
+              <!-- {{"Image1"}}&nbsp;&nbsp;{{"Image2"}}&nbsp;&nbsp;{{"Image3"}} -->
+
+              <!-- <a style="margin-left:300px;" (click)="moreimage()">UPDATE Image</a> -->
+              <br>
+              <button (click)="moreimage()"  mat-raised-button color="primary" style="padding-block-end: 1px;margin-left:250px;">UPDATE IMAGE</button>&nbsp;&nbsp;&nbsp;
+              <br>
+              <br>
+
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Weight" [(ngModel)]="product_weight" name="product_weight" id="product_weight" #weight="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="weight.valid || weight.untouched">
+        <div [hidden]="!weight?.errors?.required"></div>
+        <mat-error>Weight is required*</mat-error>
+      </div>
+      <br>
+
+        <mat-form-field class="example-full-width" >
+          <input matInput placeholder="Product Warranty" [(ngModel)]="product_warranty" name="product_warranty" id="product_warranty" #warranty="ngModel" required>
+        </mat-form-field>
+
+        <div [hidden]="warranty.valid || warranty.untouched">
+          <div [hidden]="!warranty?.errors?.required"></div>
+          <mat-error>Warranty is required*</mat-error>
+        </div>
+        <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Material" [(ngModel)]="product_material" name="product_material" id="product_material" #mat="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="mat.valid || mat.untouched">
+        <div [hidden]="!mat?.errors?.required"></div>
+        <mat-error>Material is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Roomtype" [(ngModel)]="product_Roomtype" name="product_Roomtype" id="product_Roomtype" #room="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="room.valid || room.untouched">
+        <div [hidden]="!room?.errors?.required"></div>
+        <mat-error>RoomType is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Height" [(ngModel)]="product_height" name="product_height" id="product_height" #height="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="height.valid || height.untouched">
+        <div [hidden]="!height?.errors?.required"></div>
+        <mat-error>Height is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Width" [(ngModel)]="product_width" name="product_width" id="product_width" #width="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="width.valid || width.untouched">
+        <div [hidden]="!width?.errors?.required"></div>
+        <mat-error>Width is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Depth" [(ngModel)]="product_depth" name="product_depth" id="product_depth" #depth="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="depth.valid || depth.untouched">
+        <div [hidden]="!depth?.errors?.required"></div>
+        <mat-error>Depth is required*</mat-error>
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Quantity" [(ngModel)]="product_qty" name="product_qty" id="product_qty" #qty="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="qty.valid || qty.untouched">
+        <div [hidden]="!qty?.errors?.required"></div>
+        <mat-error>Quantity is required*</mat-error>
+      </div>
+      <br>
+
+
+      <mat-form-field class="example-full-width" >
+        <input matInput placeholder="Product Offer" [(ngModel)]="product_offer" name="product_offer" id="product_offer" #offer="ngModel" required>
+      </mat-form-field>
+
+      <div [hidden]="offer.valid || offer.untouched">
+        <div [hidden]="!offer?.errors?.required"></div>
+        <mat-error>Product Offer is required*</mat-error>
+      </div>
+      <br>
+
+      <button mat-raised-button color="primary" [disabled]="!f1.valid" (click)="UpdateProduct()">&nbsp;&nbsp; Save</button>
+      <button  (click)="CancelButton()" mat-raised-button color="primary" style="margin-left:100px">&nbsp;&nbsp; Cancel</button>
+
+
